@@ -1,0 +1,66 @@
+"use client";
+
+import { Button } from '@/components/ui/button'
+import Image from "next/image";
+import Link from 'next/link'
+import { useState } from "react";
+
+const photos = [
+	{ id: 1, src: "/gallery/group1/photo_2025-04-10_19-32-17.jpg",  },
+	{ id: 2, src: "/gallery/group2/photo_2025-04-10_19-34-20.jpg",  },
+	{ id: 3, src: "/gallery/group2/photo_2025-04-10_19-34-25.jpg",  },
+	{ id: 4, src: "/gallery/group3/photo_2025-04-10_19-35-38.jpg", },
+	{ id: 5, src: "/gallery/group3/photo_2025-04-10_19-35-44.jpg",  },
+	{ id: 6, src: "/gallery/group3/photo_2025-04-10_19-36-08.jpg",  },
+	{ id: 7, src: "/gallery/group4/photo_2025-04-10_19-37-08.jpg",  },
+	{ id: 8, src: "/gallery/group4/photo_2025-04-10_19-37-30.jpg",  },
+];
+
+export default function PhotoGallery() {
+	const [selectedImage, setSelectedImage] = useState<string | null>(null);
+	
+	return (
+		<section className="container mx-auto px-4">
+			{/* Responsive Image Grid */}
+			<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+				{photos.map((photo) => (
+					<div
+						key={photo.id}
+						className="relative group cursor-pointer aspect-square"
+						onClick={() => setSelectedImage(photo.src)}
+					>
+							<Image
+								src={photo.src}
+								alt={photo.src}
+								fill
+								className="object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
+							/>
+					</div>
+				))}
+			</div>
+			
+			{/* Lightbox Modal */}
+			{selectedImage && (
+				<div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+					<button
+						className="absolute top-4 right-4 text-white text-4xl"
+						onClick={() => setSelectedImage(null)}
+					>
+						&times;
+					</button>
+					<div className="relative w-full max-w-6xl h-[90vh]">
+						<Image
+							src={selectedImage}
+							alt="Enlarged view"
+							fill
+							className="object-contain"
+						/>
+					</div>
+				</div>
+			)}
+			<Button className={'mx-auto py-5 px-16 text-xl mt-4 justify-center flex items-center font-space-grotesk'}>
+				<Link href={'/gallery'}>View more</Link>
+			</Button>
+		</section>
+	);
+}

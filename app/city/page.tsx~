@@ -1,0 +1,28 @@
+'use client'
+
+import CityCard from '@/components/home/cityCard'
+import { aboutCities } from '@/constants'
+
+const Page = () => {
+	return (
+		<div>
+			<div className="mx-[5%] my-16 grid max-md:grid-cols-1 max-lg:grid-cols-2 max-xl:grid-cols-3 grid-cols-4 gap-x-24 gap-y-10">
+				{aboutCities.map((item) => (
+					<CityCard
+						key={item.url}
+						name={item.name}
+						image={item.img}
+						url={item.url}
+						about={item.about}
+					/>
+				))}
+			</div>
+			
+			<div className={'text-center font-space-grotesk'}>
+				<h1 className="text-4xl font-bold mt-10 mb-3 ">Historical Cities of Uzbekistan</h1>
+				<p className="text-start font-normal text-md text-gray-600 max-w-[60%] mx-auto max-md:max-w-[90%]">Uzbekistan is a country with a rich and diverse cultural heritage, with numerous historical cities that have played a significant role in shaping the country&apos;s history. Some of the most notable cities include:In this category, we will introduce you to such ancient cities of Uzbekistan as Tashkent, Samarkand, Bukhara, Khiva, Shakhrisabz. The brilliant cities of our country, which were once part of the Great Silk road, with more than one thousand years history. And even in the head does not fit, how such historical giants becoming living legends, continue their way in the modern world. Here you will learn about their dizzying history, architectural monuments of rare beauty, delicious national cuisine, and mysterious places in each city. In addition, you can make virtual trips, buy souvenirs and gifts online, and enjoy all the most interesting things in the photo gallery</p>
+			</div>
+		</div>
+	)
+}
+export default Page

@@ -1,0 +1,86 @@
+'use client'
+
+import { cityInfo } from '@/constants'
+import { Check, ChefHat, History } from 'lucide-react'
+import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import {
+	Breadcrumb,
+	BreadcrumbItem,
+	BreadcrumbLink,
+	BreadcrumbList,
+	BreadcrumbPage,
+	BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+const Page = () => {
+	const path = usePathname()
+	console.log(path.slice(6))
+	
+	const city = cityInfo.find(item => item.city.name === path.slice(6))
+	console.log(city?.city)
+	return (
+		<div className={'mx-[5%] my-16   font-space-grotesk'}>
+			{/* Breadcrumb */}
+			<Breadcrumb className={'text-lg'}>
+				<BreadcrumbList>
+					<BreadcrumbItem>
+						<BreadcrumbLink href="/">Home</BreadcrumbLink>
+					</BreadcrumbItem>
+					<BreadcrumbSeparator />
+					<BreadcrumbItem>
+						<BreadcrumbLink href="/city">Cities of Uzbekistan</BreadcrumbLink>
+					</BreadcrumbItem>
+					<BreadcrumbSeparator />
+					<BreadcrumbItem>
+						<BreadcrumbPage className={''}>{city?.city.name}</BreadcrumbPage>
+					</BreadcrumbItem>
+				</BreadcrumbList>
+			</Breadcrumb>
+			
+			<h1 className={'text-3xl mt-6'}>{city?.city.name}</h1>
+			<p className={'text-gray-500 mt-3'}>{city?.city.about}</p>
+			<Image
+				src={city?.city.img as string}
+				width={1000}
+				height={400}
+				alt={'image'}
+				className={'mt-5 w-[95%] aspect-video object-cover rounded-md '}
+			/>
+			<p className={'mt-3 '}>{city?.city.info}</p>
+			
+			{/* Landmarks */}
+			<div>
+				<h1 className={'text-3xl mt-6'}>Popular Landmarks</h1>
+				<p>{city?.city.name} has a large list of attractions. It will take several days to visit all of them.</p>
+				{city?.city.landmarks.map(item => {
+					return (
+						<div key={item} className={'flex mt-3'}>
+							<Check className={'mr-2'}/>
+							{item}
+						</div>
+					)
+				})}
+			</div>
+			
+			{/* 	Cuisine  */}
+			<div className={'mt-8'}>
+				<h1 className={'text-3xl flex mb-2'}>
+					Cuisine
+					<ChefHat className={'ml-2 mt-1'} size={30} />
+				</h1>
+				<p>{city?.city.cuisine}</p>
+			</div>
+		
+		{/* 	History  */}
+			<div className={'mt-8'}>
+				<h1 className={'text-3xl flex mb-2'}>
+					History
+					<History className={'ml-2 mt-1'} size={30} />
+				</h1>
+				<p>{city?.city.history}</p>
+			</div>
+		</div>
+	)
+}
+export default Page

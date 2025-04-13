@@ -1,0 +1,29 @@
+'use client'
+
+import { DirectionAwareHover } from '@/components/ui/direction-aware-hover'
+import Link from 'next/link'
+
+interface CardProps {
+	name: string
+	image: string
+	url: string
+	about: string
+}
+
+const CityCard = ({name, image, url, about} : CardProps) => {
+	return (
+		<Link href={url} className="block h-full">
+			<DirectionAwareHover
+				imageUrl={image}
+				className="h-full w-full min-h-[300px]"
+				imageClassName="object-cover h-full"
+			>
+				<div className="p-4">
+					<p className="font-space-grotesk text-xl font-bold">{name}</p>
+					<p className="font-space-grotesk text-sm mt-2 line-clamp-2">{about}</p>
+				</div>
+			</DirectionAwareHover>
+		</Link>
+	)
+}
+export default CityCard
