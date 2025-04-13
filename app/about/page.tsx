@@ -14,7 +14,7 @@ const team = [
 		name: 'Dilnura Abdunabiyeva',
 		id: 'u050209',
 		role: 'Group manager',
-		img: '/team/2.JPG'
+		img: '/team/2.jpg'
 	},
 	{
 		name: 'Abduqosimov Shoxnajot',
@@ -26,7 +26,7 @@ const team = [
 		name: 'Dono Rashidova',
 		id: 'u050255',
 		role: 'webside editor',
-		img: '/team/4.JPG'
+		img: '/team/4.jpg'
 	},
 	{
 		name: 'Akbarov Rustamxo’ja',

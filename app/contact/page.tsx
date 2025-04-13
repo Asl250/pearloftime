@@ -24,7 +24,7 @@ const Page = () => {
 						</div>
 						<div className='mt-2 flex items-center gap-3'>
 							<Phone className='size-4' />
-							<p className='text-sm'>+98 000 00 00</p>
+							<p className='text-sm'>+998 91 087 05 57</p>
 						</div>
 					</div>
 					
