@@ -20,7 +20,7 @@ const Page = () => {
 						
 						<div className='mt-12 flex items-center gap-3'>
 							<Mail className='size-4' />
-							<p className='text-sm'>info@dono.com</p>
+							<p className='text-sm'>Dono_rashidova09@mail.ru</p>
 						</div>
 						<div className='mt-2 flex items-center gap-3'>
 							<Phone className='size-4' />
