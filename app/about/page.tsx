@@ -7,32 +7,42 @@ const team = [
 	{
 		name: 'Yasmin Sulaymanova',
 		id: 'u050139',
-		role: 'operator',
-		img: '/team/1.JPG'
+		role: 'Operator',
+		img: '/team/1.JPG',
+		description: 'The Visual Maestro\n' +
+			'“I see the world through a lens—literally. From the ancient arches of Samarkand to the bustling bazaars of Tashkent, I capture moments that tell centuries of stories. Don’t ask me to take a ‘simple shot’—I’ll probably add a drone, a slow-mo, and a sunset for drama.”',
 	},
 	{
 		name: 'Dilnura Abdunabiyeva',
 		id: 'u050209',
 		role: 'Group manager',
-		img: '/team/2.jpg'
+		img: '/team/2.jpg',
+		description: 'The Puppet Master of Culture\n' +
+			'“Behind every successful video is a hundred messages, a dozen spreadsheets, and a whole lot of ‘let’s stay on schedule, people.’ I keep the gears running, the team synced, and the content flowing like chai in an Uzbek teahouse.”',
 	},
 	{
 		name: 'Abduqosimov Shoxnajot',
 		id: 'u050101',
 		role: 'Video editor and designer',
-		img: '/team/3.JPG'
+		img: '/team/3.JPG',
+		description: 'The Edit Wizard\n' +
+			'“Give me raw footage and I’ll turn it into magic. I cut, slice, color, sync—and voila, you’ve got a cinematic piece of Uzbek culture ready to hit hearts. I speak fluent Premiere Pro and my best friend is Ctrl+Z',
 	},
 	{
 		name: 'Dono Rashidova',
 		id: 'u050255',
-		role: 'webside editor',
-		img: '/team/4.jpg'
+		role: 'Webside editor',
+		img: '/team/4.jpg',
+		description: 'The Digital Architect\n' +
+			'“I turned our passion into pixels. From coding the site to making sure it doesn’t crash when your grandma clicks 100 links at once, I build the bridge between our team and the online world. A little bit of design, a little bit of backend—and a whole lot of ‘how did this bug get here?’”',
 	},
 	{
 		name: 'Akbarov Rustamxo’ja',
 		id: 'u050051',
-		role: 'video editor and operator',
-		img: '/team/5.JPG'
+		role: 'Video editor and operator',
+		img: '/team/5.JPG',
+		description: 'The Voice Behind the Culture\n' +
+			'“You may not see me, but you’ve definitely heard me. I bring soul to every story with my voice. Whether it’s a legend, lullaby, or recipe—I make sure it’s heard with emotion, clarity, and a bit of flair.”',
 	},
 ]
 
@@ -56,6 +66,7 @@ const Page = () => {
 							<CardDescription className="mt-1">ID: {member.id}</CardDescription>
 							<CardDescription className="mt-2 text-sm text-foreground">
 								{member.role}
+								<p>{member.description}</p>
 							</CardDescription>
 						</CardContent>
 					</Card>
